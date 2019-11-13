@@ -55,6 +55,7 @@ data:
         HTTP_User       ${FLUENT_ELASTICSEARCH_USER}
         HTTP_Passwd     ${FLUENT_ELASTICSEARCH_PASSWORD}
         Logstash_Format On
+        Type  _doc
         Replace_Dots    On
         Retry_Limit     False
 
