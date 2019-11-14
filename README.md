@@ -5,7 +5,7 @@ Kubernetes cluster level logging solution, utilizing Elasticseach, Kibana and Fl
 # Prerequisites
 
 * Kubernetes 1.12 or higher (minikube not working)
-* Predefined storage class called `hdd-ssd` (you may change it in `eck.yml`)
+* Predefined storage class called `hdd-ssd` (you may change it in `eck.yaml`)
 
 # Quick Start (Mini-sized Deployment)
 
