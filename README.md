@@ -11,7 +11,7 @@ Kubernetes cluster level logging solution, utilizing Elasticseach, Kibana and Fl
 
 * Clone This Repo
 
-* Deploy **Elastic Cloud on Kubernetes(ECK)**
+* Deploy Elastic Cloud on Kubernetes(ECK)
 
 For Kubernetes clusters running version 1.13 or higher:
 
