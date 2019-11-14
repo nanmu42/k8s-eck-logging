@@ -55,4 +55,4 @@ And off you go. :rocket:
 * [Kubernetes Logging with Fluent Bit](https://github.com/fluent/fluent-bit-kubernetes-logging)
 * [Fluent Bit Manual](https://docs.fluentbit.io/manual/output/elasticsearch)
 * [Enabling Native Realms on ECK](https://github.com/elastic/cloud-on-k8s/issues/2036#issuecomment-544838578)
-* [A Realms Bug in ECK 1.0.0](https://github.com/elastic/cloud-on-k8s/issues/2036#issuecomment-544838578)
+* [Fluent Bit: Elasticsearch output should probably not use a type (flb_type) ](https://github.com/fluent/fluent-bit/issues/1359#issuecomment-553228448)
