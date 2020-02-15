@@ -1,28 +1,24 @@
-# K8S Logging
+# K8S ECK Logging
 
-Kubernetes cluster level logging solution, utilizing Elasticseach, Kibana and Fluent Bit.
+This walk-through guides you to setup an in-cluster Elasticsearch and Kibana suite, with cluster-level logging data gathered by Fluent Bit. You may access and search logs from every pod in cluster, as long as the workload in pod writes log to `stdout` or `stderr`.
 
 # Prerequisites
 
-* Kubernetes 1.12 or higher (minikube not working)
+* Kubernetes 1.11 or higher (minikube not working)
 * Predefined storage class called `hdd-ssd` (you may change it in `eck.yaml`)
 
-# Quick Start (Mini-sized Deployment)
+# Deployment Steps
 
-* Clone This Repo
+Clone [this repo](https://github.com/nanmu42/k8s-eck-logging) to get necessary yaml files.
 
-* Deploy Elastic Cloud on Kubernetes(ECK)
+## Elasticsearch and Kibana
 
-For Kubernetes clusters running version 1.13 or higher:
+[Elastic Cloud on Kubernetes(ECK)](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-overview.html) is now generally available. ECK makes it easy to deploy Elasticsearch and Kibana on k8s with various topology.
 
-```bash
-kubectl create -f https://download.elastic.co/downloads/eck/1.0.0-beta1/all-in-one.yaml
-```
-
-For Kubernetes clusters running version 1.12 or lower:
+* Deploy ECK
 
 ```bash
-kubectl create -f https://download.elastic.co/downloads/eck/1.0.0-beta1/all-in-one-no-validation.yaml
+kubectl apply -f https://download.elastic.co/downloads/eck/1.0.1/all-in-one.yaml
 ```
 
 * Create Namespace `logging`
@@ -37,7 +33,11 @@ kubectl create -f ./namespace.yml
 kubectl create -f ./eck.yml
 ```
 
-* Deploy Fluent Bit
+## Fluent Bit
+
+FluentBit runs as DaemonSet on every node in cluster, gathering logs from every workload. FluentBit attach metadata like pod name and label to logs delivered to Elasticsearch.
+
+Well-structured log(in JSON) can be searched/filtered by term in Elasticsearch.
 
 ```bash
 kubectl create -f fluent-bit-service-account.yaml
@@ -47,7 +47,7 @@ kubectl create -f fluent-bit-configmap.yaml
 kubectl create -f fluent-bit-ds.yaml
 ```
 
-And off you go. :rocket:
+And off you go.
 
 # Reference
 
